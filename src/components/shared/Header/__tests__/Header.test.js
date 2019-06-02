@@ -4,7 +4,7 @@ import { Header } from '../Header';
 
 jest.mock('react-router-dom');
 
-describe('HomePage snapshot', () => {
+describe('Header snapshot', () => {
   it('should render correctly', () => {
     const HeaderSnap = renderer.create(<Header />);
     const HeaderJson = HeaderSnap.toJSON();

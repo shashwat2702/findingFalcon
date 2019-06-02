@@ -2,6 +2,7 @@
 /* eslint-disable no-shadow */
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-named-as-default
 import Header from '../../components/shared/Header/Header';
 
 export class PageLayout extends Component {
