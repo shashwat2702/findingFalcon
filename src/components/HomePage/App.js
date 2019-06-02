@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './App.scss';
 import { getData } from '../../utils/apiCalls';
 import { getPlanet, getVehicles } from '../../constants/apiUrls';
+import DropDown from '../shared/DropDown/DropDown';
 
 export default class App extends Component {
   state={
@@ -25,11 +26,24 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state);
+    const { planets } = this.state;
     return (
-      <div className="homePage">
-        HomePage
-      </div>
+      <Fragment>
+        <div className="listOfDropDown">
+          <div className="planetDropDown">
+            <DropDown planets={planets} />
+          </div>
+          <div className="planetDropDown">
+            <DropDown planets={planets} />
+          </div>
+          <div className="planetDropDown">
+            <DropDown planets={planets} />
+          </div>
+          <div className="planetDropDown">
+            <DropDown planets={planets} />
+          </div>
+        </div>
+      </Fragment>
     );
   }
 }

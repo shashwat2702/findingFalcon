@@ -1,1 +1,9 @@
+.listOfDropDown {
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem;
+    .planetDropDown {
+        width: 300px;
+    }
+}
 
