@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage snapshot should render correctly 1`] = `
+<nav
+  className="pageHeader"
+>
+  <div
+    className="navLinks"
+  >
+    <img
+      alt="hamburger menu"
+      src="hamburger.svg"
+    />
+  </div>
+</nav>
+`;
