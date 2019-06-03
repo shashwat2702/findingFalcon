@@ -3,6 +3,7 @@ import './App.scss';
 import { getData } from '../../utils/apiCalls';
 import { getPlanet, getVehicles } from '../../constants/apiUrls';
 import DropDown from '../shared/DropDown/DropDown';
+import RadioButton from '../shared/RadioButton/RadioButton';
 
 export default class App extends Component {
   state={
@@ -26,21 +27,25 @@ export default class App extends Component {
   }
 
   render() {
-    const { planets } = this.state;
+    const { planets, vehicles } = this.state;
     return (
       <Fragment>
         <div className="listOfDropDown">
           <div className="planetDropDown">
             <DropDown planets={planets} />
+            <RadioButton vehicles={vehicles} />
           </div>
           <div className="planetDropDown">
             <DropDown planets={planets} />
+            <RadioButton vehicles={vehicles} />
           </div>
           <div className="planetDropDown">
             <DropDown planets={planets} />
+            <RadioButton vehicles={vehicles} />
           </div>
           <div className="planetDropDown">
             <DropDown planets={planets} />
+            <RadioButton vehicles={vehicles} />
           </div>
         </div>
       </Fragment>
