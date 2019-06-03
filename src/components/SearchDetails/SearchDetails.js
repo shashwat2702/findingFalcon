@@ -20,8 +20,16 @@ export default class SearchDetails extends Component {
     }
   }
 
+  onChange = (event) => {
+    const { onDropDownChange } = this.props;
+    onDropDownChange(event);
+    this.changeVisibilityOfVehicles(event);
+  }
+
   render() {
-    const { planets, vehicles, planetNumber } = this.props;
+    const {
+      planets, vehicles, planetNumber,
+    } = this.props;
     const { showVehicles } = this.state;
     return (
       <div className="planetDropDown">
@@ -32,7 +40,8 @@ export default class SearchDetails extends Component {
         </h3>
         <DropDown
           planets={planets}
-          onChange={this.changeVisibilityOfVehicles}
+          onChange={this.onChange}
+          name={planetNumber}
         />
         {showVehicles
           && <RadioButton vehicles={vehicles} />
@@ -46,4 +55,5 @@ SearchDetails.propTypes = {
   planets: PropTypes.array.isRequired,
   vehicles: PropTypes.array.isRequired,
   planetNumber: PropTypes.number.isRequired,
+  onDropDownChange: PropTypes.func.isRequired,
 };
