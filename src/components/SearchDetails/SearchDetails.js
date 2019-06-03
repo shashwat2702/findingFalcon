@@ -28,7 +28,7 @@ export default class SearchDetails extends Component {
 
   render() {
     const {
-      planets, vehicles, planetNumber,
+      planets, vehicles, planetNumber, selectedPlanets,
     } = this.props;
     const { showVehicles } = this.state;
     return (
@@ -40,6 +40,7 @@ export default class SearchDetails extends Component {
         </h3>
         <DropDown
           planets={planets}
+          selectedPlanets={selectedPlanets}
           onChange={this.onChange}
           name={planetNumber}
         />
@@ -53,6 +54,7 @@ export default class SearchDetails extends Component {
 
 SearchDetails.propTypes = {
   planets: PropTypes.array.isRequired,
+  selectedPlanets: PropTypes.array.isRequired,
   vehicles: PropTypes.array.isRequired,
   planetNumber: PropTypes.number.isRequired,
   onDropDownChange: PropTypes.func.isRequired,

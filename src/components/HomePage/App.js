@@ -36,7 +36,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { planets, vehicles } = this.state;
+    const { planets, vehicles, selectedPlanets } = this.state;
     return (
       <Fragment>
         <h1>Finding Falcon</h1>
@@ -44,24 +44,28 @@ export default class App extends Component {
         <div className="listOfDropDown">
           <SearchDetails
             planets={planets}
+            selectedPlanets={selectedPlanets}
             vehicles={vehicles}
             planetNumber={1}
             onDropDownChange={this.onDropDownChange}
           />
           <SearchDetails
             planets={planets}
+            selectedPlanets={selectedPlanets}
             vehicles={vehicles}
             planetNumber={2}
             onDropDownChange={this.onDropDownChange}
           />
           <SearchDetails
             planets={planets}
+            selectedPlanets={selectedPlanets}
             vehicles={vehicles}
             planetNumber={3}
             onDropDownChange={this.onDropDownChange}
           />
           <SearchDetails
             planets={planets}
+            selectedPlanets={selectedPlanets}
             vehicles={vehicles}
             planetNumber={4}
             onDropDownChange={this.onDropDownChange}
