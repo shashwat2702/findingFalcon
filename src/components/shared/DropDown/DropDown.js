@@ -7,8 +7,19 @@ const DropDown = ({
   planets, onChange, name, selectedPlanets,
 }) => (
   <div className="dropDown">
-    <select defaultValue="Select One" onChange={onChange} name={name}>
+    <select value={selectedPlanets[Number(name) - 1]} onChange={onChange} name={name}>
       <option value="Select One">Select One</option>
+      {(selectedPlanets[Number(name) - 1] !== '')
+      && (
+      <option
+        value={selectedPlanets[Number(name) - 1]}
+        key={selectedPlanets[Number(name) - 1]}
+      >
+        {selectedPlanets[Number(name) - 1]}
+
+      </option>
+      )
+      }
       {
           planets.map(planet => (!selectedPlanets.includes(planet.name)
             && <option value={planet.name} key={planet.name}>{planet.name}</option>
