@@ -30,20 +30,26 @@ export default class App extends Component {
     const { planets, vehicles } = this.state;
     return (
       <Fragment>
+        <h1>Finding Falcon</h1>
+        <h2>Please Select the planets where you want to send the army:</h2>
         <div className="listOfDropDown">
           <div className="planetDropDown">
+            <h3>Planet 1</h3>
             <DropDown planets={planets} />
             <RadioButton vehicles={vehicles} />
           </div>
           <div className="planetDropDown">
+            <h3>Planet 2</h3>
             <DropDown planets={planets} />
             <RadioButton vehicles={vehicles} />
           </div>
           <div className="planetDropDown">
+            <h3>Planet 3</h3>
             <DropDown planets={planets} />
             <RadioButton vehicles={vehicles} />
           </div>
           <div className="planetDropDown">
+            <h3>Planet 4</h3>
             <DropDown planets={planets} />
             <RadioButton vehicles={vehicles} />
           </div>

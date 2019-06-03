@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './RadioButton.scss';
 
 const RadioButton = ({ vehicles }) => (
   <div>
     {
           vehicles.map(vehicle => (
-            <div key={vehicle.name}>
-              <input type="radio" name="gender" value={vehicle.name} />
+            <div key={vehicle.name} className="dropdown">
+              <input type="radio" name="gender" value={vehicle.name} disabled={false} />
+              {' '}
               {vehicle.name}
+              {` (${vehicle.total_no})`}
               <br />
             </div>
           ))
