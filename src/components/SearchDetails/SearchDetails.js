@@ -28,7 +28,7 @@ export default class SearchDetails extends Component {
 
   render() {
     const {
-      planets, vehicles, planetNumber, selectedPlanets,
+      planets, vehicles, planetNumber, selectedPlanets, onRadioClick,
     } = this.props;
     const { showVehicles } = this.state;
     return (
@@ -45,7 +45,13 @@ export default class SearchDetails extends Component {
           name={planetNumber}
         />
         {showVehicles
-          && <RadioButton vehicles={vehicles} />
+          && (
+          <RadioButton
+            vehicles={vehicles}
+            onRadioClick={onRadioClick}
+            planetNumber={planetNumber}
+          />
+          )
         }
       </div>
     );
@@ -58,4 +64,5 @@ SearchDetails.propTypes = {
   vehicles: PropTypes.array.isRequired,
   planetNumber: PropTypes.number.isRequired,
   onDropDownChange: PropTypes.func.isRequired,
+  onRadioClick: PropTypes.func.isRequired,
 };

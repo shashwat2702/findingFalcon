@@ -31,8 +31,17 @@ export default class App extends Component {
     const { target } = event;
     const { name, value } = target;
     const { selectedPlanets } = this.state;
-    selectedPlanets[Number(name - 1)] = value;
+    selectedPlanets[Number(name) - 1] = value;
     this.setState({ selectedPlanets });
+  }
+
+  onRadioClick = (event) => {
+    const { target } = event;
+    const { name, value } = target;
+    const vehicleIndex = name.substring(7);
+    const { selectedVehicles } = this.state;
+    selectedVehicles[Number(vehicleIndex) - 1] = value;
+    this.setState({ selectedVehicles });
   }
 
   render() {
@@ -48,6 +57,7 @@ export default class App extends Component {
             vehicles={vehicles}
             planetNumber={1}
             onDropDownChange={this.onDropDownChange}
+            onRadioClick={this.onRadioClick}
           />
           <SearchDetails
             planets={planets}
@@ -55,6 +65,7 @@ export default class App extends Component {
             vehicles={vehicles}
             planetNumber={2}
             onDropDownChange={this.onDropDownChange}
+            onRadioClick={this.onRadioClick}
           />
           <SearchDetails
             planets={planets}
@@ -62,6 +73,7 @@ export default class App extends Component {
             vehicles={vehicles}
             planetNumber={3}
             onDropDownChange={this.onDropDownChange}
+            onRadioClick={this.onRadioClick}
           />
           <SearchDetails
             planets={planets}
@@ -69,6 +81,7 @@ export default class App extends Component {
             vehicles={vehicles}
             planetNumber={4}
             onDropDownChange={this.onDropDownChange}
+            onRadioClick={this.onRadioClick}
           />
         </div>
       </Fragment>
