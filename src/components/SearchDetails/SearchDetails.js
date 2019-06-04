@@ -50,6 +50,8 @@ export default class SearchDetails extends Component {
             vehicles={vehicles}
             onRadioClick={onRadioClick}
             planetNumber={planetNumber}
+            selectedPlanets={selectedPlanets}
+            planets={planets}
           />
           )
         }
