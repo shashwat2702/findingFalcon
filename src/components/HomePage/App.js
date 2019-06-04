@@ -10,6 +10,7 @@ export default class App extends Component {
     vehicles: [],
     selectedPlanets: ['', '', '', ''],
     selectedVehicles: ['', '', '', ''],
+    totalTimeTaken: 0,
   }
 
   componentDidMount() {
@@ -42,6 +43,7 @@ export default class App extends Component {
     const { selectedVehicles } = this.state;
     selectedVehicles[Number(vehicleIndex) - 1] = value;
     this.setState({ selectedVehicles });
+    this.getTotalTimeTaken();
   }
 
   getSearchDetails = () => {
@@ -62,7 +64,33 @@ export default class App extends Component {
     return listOfSearchDetails;
   }
 
+  getTotalTimeTaken = () => {
+    const {
+      planets, vehicles, selectedPlanets, selectedVehicles,
+    } = this.state;
+    let totalTime = 0;
+    selectedVehicles.forEach((selectedvehicle, index) => {
+      if (selectedvehicle !== '') {
+        const indexOfVehicle = vehicles.findIndex((vehicle) => {
+          if (vehicle.name === selectedvehicle) {
+            return true;
+          }
+          return false;
+        });
+        const indexOfPlanet = planets.findIndex((planet) => {
+          if (planet.name === selectedPlanets[index]) {
+            return true;
+          }
+          return false;
+        });
+        totalTime += (planets[indexOfPlanet].distance / vehicles[indexOfVehicle].speed);
+      }
+    });
+    this.setState({ totalTimeTaken: totalTime });
+  }
+
   render() {
+    const { totalTimeTaken } = this.state;
     return (
       <Fragment>
         <h1>Finding Falcon</h1>
@@ -70,6 +98,11 @@ export default class App extends Component {
         <div className="listOfDropDown">
           {this.getSearchDetails()}
         </div>
+        <h2>
+Time Taken:
+          {' '}
+          {totalTimeTaken}
+        </h2>
       </Fragment>
     );
   }
