@@ -45,7 +45,9 @@ export default class App extends Component {
   }
 
   render() {
-    const { planets, vehicles, selectedPlanets } = this.state;
+    const {
+      planets, vehicles, selectedPlanets, selectedVehicles,
+    } = this.state;
     return (
       <Fragment>
         <h1>Finding Falcon</h1>
@@ -58,6 +60,7 @@ export default class App extends Component {
             planetNumber={1}
             onDropDownChange={this.onDropDownChange}
             onRadioClick={this.onRadioClick}
+            selectedVehicles={selectedVehicles}
           />
           <SearchDetails
             planets={planets}
@@ -66,6 +69,7 @@ export default class App extends Component {
             planetNumber={2}
             onDropDownChange={this.onDropDownChange}
             onRadioClick={this.onRadioClick}
+            selectedVehicles={selectedVehicles}
           />
           <SearchDetails
             planets={planets}
@@ -74,6 +78,7 @@ export default class App extends Component {
             planetNumber={3}
             onDropDownChange={this.onDropDownChange}
             onRadioClick={this.onRadioClick}
+            selectedVehicles={selectedVehicles}
           />
           <SearchDetails
             planets={planets}
@@ -82,6 +87,7 @@ export default class App extends Component {
             planetNumber={4}
             onDropDownChange={this.onDropDownChange}
             onRadioClick={this.onRadioClick}
+            selectedVehicles={selectedVehicles}
           />
         </div>
       </Fragment>

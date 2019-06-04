@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './RadioButton.scss';
 
-const isDisabled = (selectedPlanets, planetNumber, vehicle, planets) => {
+
+const isDisabled = (selectedPlanets, planetNumber, vehicle, planets, usedVehicles) => {
   const selectedPlanet = selectedPlanets[Number(planetNumber) - 1];
   const indexOfPlanet = planets.findIndex((planet) => {
     if (planet.name === selectedPlanet) {
@@ -13,14 +14,15 @@ const isDisabled = (selectedPlanets, planetNumber, vehicle, planets) => {
   });
   const planetDetails = planets[indexOfPlanet];
   const { distance } = planetDetails;
-  if (vehicle.max_distance < distance) {
-    return true;
-  }
-  return false;
+  const planetNotReachable = (vehicle.max_distance < distance);
+  const isVehicleAvailable = vehicle.total_no
+  - ((usedVehicles[vehicle.name]) ? (usedVehicles[vehicle.name]) : 0);
+  const shouldBeDisabled = planetNotReachable || !isVehicleAvailable;
+  return shouldBeDisabled;
 };
 
 const RadioButton = ({
-  vehicles, onRadioClick, planetNumber, selectedPlanets, planets,
+  vehicles, onRadioClick, planetNumber, selectedPlanets, planets, usedVehicles,
 }) => (
   <div>
     {
@@ -30,12 +32,12 @@ const RadioButton = ({
                 type="radio"
                 name={`vehicle${planetNumber}`}
                 value={vehicle.name}
-                disabled={isDisabled(selectedPlanets, planetNumber, vehicle, planets)}
+                disabled={isDisabled(selectedPlanets, planetNumber, vehicle, planets, usedVehicles)}
                 onClick={onRadioClick}
               />
               {' '}
               {vehicle.name}
-              {` (${vehicle.total_no})`}
+              {` (${vehicle.total_no - ((usedVehicles[vehicle.name]) ? (usedVehicles[vehicle.name]) : 0)})`}
               <br />
             </div>
           ))
@@ -49,5 +51,6 @@ RadioButton.propTypes = {
   planets: PropTypes.array.isRequired,
   onRadioClick: PropTypes.func.isRequired,
   planetNumber: PropTypes.number.isRequired,
+  usedVehicles: PropTypes.object.isRequired,
 };
 export default RadioButton;

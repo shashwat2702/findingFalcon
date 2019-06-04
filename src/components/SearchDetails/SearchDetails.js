@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/forbid-prop-types */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -8,6 +9,19 @@ import RadioButton from '../shared/RadioButton/RadioButton';
 export default class SearchDetails extends Component {
   state={
     showVehicles: false,
+  }
+
+  numberOfOccupiedvehicle = (selectedVehicles) => {
+    const vehicleCount = selectedVehicles.reduce((usedVehicles, currentVehicle) => {
+      if (currentVehicle in usedVehicles) {
+        usedVehicles[currentVehicle] += 1;
+      } else {
+        usedVehicles[currentVehicle] = 1;
+      }
+      return usedVehicles;
+    },
+    {});
+    return vehicleCount;
   }
 
   changeVisibilityOfVehicles = (event) => {
@@ -28,7 +42,7 @@ export default class SearchDetails extends Component {
 
   render() {
     const {
-      planets, vehicles, planetNumber, selectedPlanets, onRadioClick,
+      planets, vehicles, planetNumber, selectedPlanets, onRadioClick, selectedVehicles,
     } = this.props;
     const { showVehicles } = this.state;
     return (
@@ -52,6 +66,7 @@ export default class SearchDetails extends Component {
             planetNumber={planetNumber}
             selectedPlanets={selectedPlanets}
             planets={planets}
+            usedVehicles={this.numberOfOccupiedvehicle(selectedVehicles)}
           />
           )
         }
@@ -67,4 +82,5 @@ SearchDetails.propTypes = {
   planetNumber: PropTypes.number.isRequired,
   onDropDownChange: PropTypes.func.isRequired,
   onRadioClick: PropTypes.func.isRequired,
+  selectedVehicles: PropTypes.array.isRequired,
 };
