@@ -44,51 +44,31 @@ export default class App extends Component {
     this.setState({ selectedVehicles });
   }
 
-  render() {
+  getSearchDetails = () => {
     const {
       planets, vehicles, selectedPlanets, selectedVehicles,
     } = this.state;
+    const listOfSearchDetails = selectedPlanets.map((planet, index) => (
+      <SearchDetails
+        planets={planets}
+        selectedPlanets={selectedPlanets}
+        vehicles={vehicles}
+        planetNumber={index + 1}
+        onDropDownChange={this.onDropDownChange}
+        onRadioClick={this.onRadioClick}
+        selectedVehicles={selectedVehicles}
+      />
+    ));
+    return listOfSearchDetails;
+  }
+
+  render() {
     return (
       <Fragment>
         <h1>Finding Falcon</h1>
         <h2>Please Select the planets where you want to send the army:</h2>
         <div className="listOfDropDown">
-          <SearchDetails
-            planets={planets}
-            selectedPlanets={selectedPlanets}
-            vehicles={vehicles}
-            planetNumber={1}
-            onDropDownChange={this.onDropDownChange}
-            onRadioClick={this.onRadioClick}
-            selectedVehicles={selectedVehicles}
-          />
-          <SearchDetails
-            planets={planets}
-            selectedPlanets={selectedPlanets}
-            vehicles={vehicles}
-            planetNumber={2}
-            onDropDownChange={this.onDropDownChange}
-            onRadioClick={this.onRadioClick}
-            selectedVehicles={selectedVehicles}
-          />
-          <SearchDetails
-            planets={planets}
-            selectedPlanets={selectedPlanets}
-            vehicles={vehicles}
-            planetNumber={3}
-            onDropDownChange={this.onDropDownChange}
-            onRadioClick={this.onRadioClick}
-            selectedVehicles={selectedVehicles}
-          />
-          <SearchDetails
-            planets={planets}
-            selectedPlanets={selectedPlanets}
-            vehicles={vehicles}
-            planetNumber={4}
-            onDropDownChange={this.onDropDownChange}
-            onRadioClick={this.onRadioClick}
-            selectedVehicles={selectedVehicles}
-          />
+          {this.getSearchDetails()}
         </div>
       </Fragment>
     );
