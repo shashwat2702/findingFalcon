@@ -1,0 +1,18 @@
+.editTaskButton {
+    background-color: #1ab188;
+    border: none;
+    border-radius: 3px;
+    height: 4rem;
+    width: 12rem;
+    font-size: 2rem;
+    color: white;
+}
+.editTaskButton:disabled {
+    background-color: #1a896c;
+    border: none;
+    border-radius: 3px;
+    height: 4rem;
+    width: 12rem;
+    font-size: 2rem;
+    color: white;
+}

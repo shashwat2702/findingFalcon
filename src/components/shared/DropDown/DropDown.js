@@ -8,7 +8,7 @@ const DropDown = ({
 }) => (
   <div className="dropDown">
     <select value={selectedPlanets[Number(name) - 1]} onChange={onChange} name={name}>
-      <option value="Select One">Select One</option>
+      <option value="">Select One</option>
       {(selectedPlanets[Number(name) - 1] !== '')
       && (
       <option

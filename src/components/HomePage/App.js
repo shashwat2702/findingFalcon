@@ -3,6 +3,7 @@ import './App.scss';
 import { getData } from '../../utils/apiCalls';
 import { getPlanet, getVehicles } from '../../constants/apiUrls';
 import SearchDetails from '../SearchDetails/SearchDetails';
+import Button from '../shared/Button/Button';
 
 export default class App extends Component {
   state={
@@ -90,7 +91,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { totalTimeTaken } = this.state;
+    const { totalTimeTaken, selectedVehicles } = this.state;
     return (
       <Fragment>
         <h1>Finding Falcon</h1>
@@ -102,7 +103,15 @@ export default class App extends Component {
 Time Taken:
           {' '}
           {totalTimeTaken}
+          {(totalTimeTaken === 0) ? '  Hour' : '  Hours'}
         </h2>
+        <div className="findButton">
+          <Button
+            label="Find Falcon!"
+            onClick={this.getTotalTimeTaken}
+            disabled={selectedVehicles.includes('')}
+          />
+        </div>
       </Fragment>
     );
   }

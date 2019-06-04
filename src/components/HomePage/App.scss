@@ -14,9 +14,14 @@ h2 {
     display: flex;
     justify-content: space-between;
     margin: 2rem;
+    min-height: 18rem;
     @media screen and (max-width: 768px) {
         flex-direction: column;
         align-items: center;
     }
+}
+.findButton {
+    display: flex;
+    justify-content: center;
 }
 
