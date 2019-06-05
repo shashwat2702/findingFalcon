@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './App.scss';
 import { getData, postData } from '../../utils/apiCalls';
 import {
@@ -7,7 +9,7 @@ import {
 import SearchDetails from '../SearchDetails/SearchDetails';
 import Button from '../shared/Button/Button';
 
-export default class App extends Component {
+class App extends Component {
   state={
     planets: [],
     vehicles: [],
@@ -99,13 +101,25 @@ export default class App extends Component {
       const { token } = data;
       this.setState({ requestToken: token });
     });
-    const { requestToken } = this.state;
+    const { requestToken, totalTimeTaken } = this.state;
+    const { history } = this.props;
     const requestBody = {
       token: requestToken,
       planet_names: selectedPlanets,
       vehicle_names: selectedVehicles,
     };
-    postData(findFalcon, requestBody).then(console.log);
+    postData(findFalcon, requestBody).then((response) => {
+      const { data, status } = response;
+      if (status === 200) {
+        history.push({
+          pathname: '/result',
+          state: {
+            key: data,
+            timeTaken: totalTimeTaken,
+          },
+        });
+      }
+    });
   };
 
   render() {
@@ -134,3 +148,8 @@ Time Taken:
     );
   }
 }
+App.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.object.isRequired,
+};
+export default withRouter(App);
