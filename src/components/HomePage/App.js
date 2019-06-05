@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './App.scss';
-import { getData } from '../../utils/apiCalls';
-import { getPlanet, getVehicles } from '../../constants/apiUrls';
+import { getData, postData } from '../../utils/apiCalls';
+import {
+  getPlanet, getVehicles, getToken, findFalcon,
+} from '../../constants/apiUrls';
 import SearchDetails from '../SearchDetails/SearchDetails';
 import Button from '../shared/Button/Button';
 
@@ -12,6 +14,7 @@ export default class App extends Component {
     selectedPlanets: ['', '', '', ''],
     selectedVehicles: ['', '', '', ''],
     totalTimeTaken: 0,
+    requestToken: '',
   }
 
   componentDidMount() {
@@ -90,6 +93,21 @@ export default class App extends Component {
     this.setState({ totalTimeTaken: totalTime });
   }
 
+  onSubmit = async () => {
+    const { selectedPlanets, selectedVehicles } = this.state;
+    await postData(getToken, '').then(({ data }) => {
+      const { token } = data;
+      this.setState({ requestToken: token });
+    });
+    const { requestToken } = this.state;
+    const requestBody = {
+      token: requestToken,
+      planet_names: selectedPlanets,
+      vehicle_names: selectedVehicles,
+    };
+    postData(findFalcon, requestBody).then(console.log);
+  };
+
   render() {
     const { totalTimeTaken, selectedVehicles } = this.state;
     return (
@@ -108,7 +126,7 @@ Time Taken:
         <div className="findButton">
           <Button
             label="Find Falcon!"
-            onClick={this.getTotalTimeTaken}
+            onClick={this.onSubmit}
             disabled={selectedVehicles.includes('')}
           />
         </div>
