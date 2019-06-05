@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.scss';
 import { getData, postData } from '../../utils/apiCalls';
+import { findIndexOfVehicle, findIndexOfPlanet } from '../../utils/helperFunction';
 import {
   getPlanet, getVehicles, getToken, findFalcon,
 } from '../../constants/apiUrls';
@@ -77,18 +78,8 @@ class App extends Component {
     let totalTime = 0;
     selectedVehicles.forEach((selectedvehicle, index) => {
       if (selectedvehicle !== '') {
-        const indexOfVehicle = vehicles.findIndex((vehicle) => {
-          if (vehicle.name === selectedvehicle) {
-            return true;
-          }
-          return false;
-        });
-        const indexOfPlanet = planets.findIndex((planet) => {
-          if (planet.name === selectedPlanets[index]) {
-            return true;
-          }
-          return false;
-        });
+        const indexOfVehicle = findIndexOfVehicle(vehicles, selectedvehicle);
+        const indexOfPlanet = findIndexOfPlanet(planets, selectedPlanets, index);
         totalTime += (planets[indexOfPlanet].distance / vehicles[indexOfVehicle].speed);
       }
     });
@@ -132,7 +123,7 @@ class App extends Component {
           {this.getSearchDetails()}
         </div>
         <h2>
-Time Taken:
+            Time Taken:
           {' '}
           {totalTimeTaken}
           {(totalTimeTaken === 0) ? '  Hour' : '  Hours'}
