@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropDown snapshot should render correctly 1`] = `
+<div
+  className="dropDown"
+>
+  <select
+    name={1}
+    onChange={[MockFunction]}
+    value="PlanetC"
+  >
+    <option
+      value=""
+    >
+      Select One
+    </option>
+    <option
+      value="PlanetC"
+    >
+      PlanetC
+    </option>
+    <option
+      value="PlanetB"
+    >
+      PlanetB
+    </option>
+    <option
+      value="PlanetE"
+    >
+      PlanetE
+    </option>
+  </select>
+</div>
+`;

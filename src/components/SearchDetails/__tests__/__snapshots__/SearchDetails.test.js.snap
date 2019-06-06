@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchDetails snapshot should render correctly 1`] = `
+<div
+  className="planetDropDown"
+>
+  <h3>
+    Planet
+     
+    1
+  </h3>
+  <div
+    className="dropDown"
+  >
+    <select
+      name={1}
+      onChange={[Function]}
+      value="PlanetC"
+    >
+      <option
+        value=""
+      >
+        Select One
+      </option>
+      <option
+        value="PlanetC"
+      >
+        PlanetC
+      </option>
+      <option
+        value="PlanetB"
+      >
+        PlanetB
+      </option>
+      <option
+        value="PlanetE"
+      >
+        PlanetE
+      </option>
+    </select>
+  </div>
+</div>
+`;

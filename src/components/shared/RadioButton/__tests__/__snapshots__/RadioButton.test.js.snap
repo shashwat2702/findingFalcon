@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButton snapshot should render correctly 1`] = `
+<div>
+  <div
+    className="dropdown"
+  >
+    <input
+      disabled={true}
+      name="vehicle1"
+      onClick={[MockFunction]}
+      type="radio"
+      value="VehicleA"
+    />
+     
+    VehicleA
+     (NaN)
+    <br />
+  </div>
+  <div
+    className="dropdown"
+  >
+    <input
+      disabled={true}
+      name="vehicle1"
+      onClick={[MockFunction]}
+      type="radio"
+      value="VehicleB"
+    />
+     
+    VehicleB
+     (NaN)
+    <br />
+  </div>
+  <div
+    className="dropdown"
+  >
+    <input
+      disabled={true}
+      name="vehicle1"
+      onClick={[MockFunction]}
+      type="radio"
+      value="VehicleC"
+    />
+     
+    VehicleC
+     (NaN)
+    <br />
+  </div>
+  <div
+    className="dropdown"
+  >
+    <input
+      disabled={true}
+      name="vehicle1"
+      onClick={[MockFunction]}
+      type="radio"
+      value="VehicleD"
+    />
+     
+    VehicleD
+     (NaN)
+    <br />
+  </div>
+  <div
+    className="dropdown"
+  >
+    <input
+      disabled={true}
+      name="vehicle1"
+      onClick={[MockFunction]}
+      type="radio"
+      value="VehicleE"
+    />
+     
+    VehicleE
+     (NaN)
+    <br />
+  </div>
+  <div
+    className="dropdown"
+  >
+    <input
+      disabled={true}
+      name="vehicle1"
+      onClick={[MockFunction]}
+      type="radio"
+      value="VehicleF"
+    />
+     
+    VehicleF
+     (NaN)
+    <br />
+  </div>
+</div>
+`;
