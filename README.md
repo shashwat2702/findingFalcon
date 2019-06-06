@@ -1,3 +1,14 @@
+## How to run this Project
+
+1. Just clone the repo or download the zip file
+2. Unzip the file.
+3. Open a terminal and navigate inside project directory
+4. Use command `npm install` to install all the dependencies
+5. Use command `serve -s build` to start the server
+6. To stop the server Press `CTRL + C` to stop.
+7. To run all the test cases use command `npm test`
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
