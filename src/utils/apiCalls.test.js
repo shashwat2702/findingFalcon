@@ -38,6 +38,7 @@ describe('getData () :', () => {
 
 describe('postData () :', () => {
   let postMock;
+  const headers = { headers: { Accept: 'application/json', 'Content-Type': 'application/json' } };
   beforeAll(() => {
     postMock = jest.spyOn(axios, 'post');
     postMock.mockImplementation(() => Promise.resolve(mockPosts));
@@ -48,6 +49,6 @@ describe('postData () :', () => {
   it('should return mockPosts', async () => {
     const result = await postData('http://localhost:8080/books', 'key');
     expect(result).toEqual(mockPosts);
-    expect(postMock).toHaveBeenCalledWith('http://localhost:8080/books', { data: 'key' });
+    expect(postMock).toHaveBeenCalledWith('http://localhost:8080/books', 'key', headers);
   });
 });
