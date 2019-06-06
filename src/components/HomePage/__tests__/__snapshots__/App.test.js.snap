@@ -1,9 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomePage snapshot should render correctly 1`] = `
-<div
-  className="homePage"
->
-  HomePage
-</div>
+Array [
+  <h1>
+    Finding Falcon
+  </h1>,
+  <h2>
+    Please Select the planets where you want to send the army:
+  </h2>,
+  <div
+    className="listOfDropDown"
+  >
+    <div
+      className="planetDropDown"
+    >
+      <h3>
+        Planet
+         
+        1
+      </h3>
+      <div
+        className="dropDown"
+      >
+        <select
+          name={1}
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          >
+            Select One
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="planetDropDown"
+    >
+      <h3>
+        Planet
+         
+        2
+      </h3>
+      <div
+        className="dropDown"
+      >
+        <select
+          name={2}
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          >
+            Select One
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="planetDropDown"
+    >
+      <h3>
+        Planet
+         
+        3
+      </h3>
+      <div
+        className="dropDown"
+      >
+        <select
+          name={3}
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          >
+            Select One
+          </option>
+        </select>
+      </div>
+    </div>
+    <div
+      className="planetDropDown"
+    >
+      <h3>
+        Planet
+         
+        4
+      </h3>
+      <div
+        className="dropDown"
+      >
+        <select
+          name={4}
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value=""
+          >
+            Select One
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>,
+  <h2>
+    Time Taken:
+     
+    0
+      Hour
+  </h2>,
+  <div
+    className="findButton"
+  >
+    <button
+      className="editTaskButton"
+      disabled={true}
+      onClick={[Function]}
+      type="submit"
+    >
+      Find Falcon!
+    </button>
+  </div>,
+]
 `;

@@ -10,7 +10,7 @@ import {
 import SearchDetails from '../SearchDetails/SearchDetails';
 import Button from '../shared/Button/Button';
 
-class App extends Component {
+export class App extends Component {
   state={
     planets: [],
     vehicles: [],
