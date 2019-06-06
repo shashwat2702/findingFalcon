@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import './ResultPage.scss';
 import Button from '../shared/Button/Button';
 
-class ResultPage extends Component {
+export class ResultPage extends Component {
   constructor(props) {
     super(props);
     const { location, history } = props;
@@ -37,7 +37,6 @@ class ResultPage extends Component {
 
   render() {
     const { foundStatus, totalTimeTaken, foundOnPlanet } = this.state;
-    console.log(this.props);
     return (
       <div>
         <h1>Finding Falcon! </h1>

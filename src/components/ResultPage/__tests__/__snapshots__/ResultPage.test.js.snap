@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResultPage snapshot should render correctly when Falcon is found 1`] = `
+<div>
+  <h1>
+    Finding Falcon! 
+  </h1>
+  <h2>
+    Success! Congratulations on Finding Falcone. King Shan is mighty pleased.
+  </h2>
+  <div>
+    <h2>
+      Time taken
+       
+      200
+    </h2>
+    <h2>
+      Planet Found:
+       
+      DonLon
+    </h2>
+  </div>
+  <div
+    className="startAgainButton"
+  >
+    <button
+      className="editTaskButton"
+      disabled={false}
+      onClick={[Function]}
+      type="submit"
+    >
+      Start Again
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ResultPage snapshot should render correctly when Falcon is not found 1`] = `
+<div>
+  <h1>
+    Finding Falcon! 
+  </h1>
+  <h2>
+    Sorry! Falcone was not found on selected Planets. King Shan is dissappointed.
+  </h2>
+  <div
+    className="startAgainButton"
+  >
+    <button
+      className="editTaskButton"
+      disabled={false}
+      onClick={[Function]}
+      type="submit"
+    >
+      Start Again
+    </button>
+  </div>
+</div>
+`;
