@@ -4,9 +4,12 @@
 2. Unzip the file.
 3. Open a terminal and navigate inside project directory
 4. Use command `npm install` to install all the dependencies
-5. Use command `serve -s build` to start the server
-6. To stop the server Press `CTRL + C` to stop.
-7. To run all the test cases use command `npm test`
+5. Use command `npm run build` to build the source code before starting server.
+6. Use command `serve -s build` to start the server
+7. To stop the server Press `CTRL + C` to stop.
+8. To run all the test cases use command `npm test`
+9. Go to [This link](http://localhost:5000/) to access app on your local system.
+10. You can visit [This link](https://finding-falcon-2702.herokuapp.com/#/) for demo of already deployed version
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
